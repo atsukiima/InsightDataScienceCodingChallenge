@@ -109,6 +109,8 @@ mp = readInputFileAndCreateMap(inputFilePath)
 stats = processMap(mp)
 
 #sort the list into the order of writing
+#this sorting is stable, which means that it will keep the original order if there is a tie
+#the original order is by drug_name. So it will be sorted by total_cost then by drug_name if there is a tie
 outputData = sorted(stats, key = lambda entry: entry[2], reverse = True)
 
 #write the data in comma-separated-value format
